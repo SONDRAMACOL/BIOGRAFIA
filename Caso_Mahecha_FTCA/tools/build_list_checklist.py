@@ -9,7 +9,7 @@ from reportlab.lib.styles import ParagraphStyle
 from reportlab.lib import colors
 from xml.sax.saxutils import escape as X
 
-OUT = sys.argv[1]
+OUT = sys.argv[1] if __name__ == "__main__" else None
 
 # (título del grupo, separadora para el checklist, [(documento, fecha, nota del checklist)])
 G = [
@@ -198,4 +198,5 @@ def checklist():
     return k
 
 
-print(enclosures(), checklist())
+if __name__ == "__main__":
+    print(enclosures(), checklist())
